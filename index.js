@@ -1,4 +1,27 @@
-////call back function in JS
+////event loop
+// console.log("Start");
+
+// setTimeout(function() {
+//     console.log("timer");
+// }, 5000);
+
+// console.log("End");
+
+//-----------------------------
+
+// console.log("Start");
+
+// setTimeout(function () {
+//   console.log("timer");
+// }, 5000);
+
+// fetch("https://api.netflix.com").then(function cbf() {
+//   console.log("CB Netflix");
+// });
+
+// console.log("End");
+
+////callback function
 
 // function handleEvendListener() {
 //   let count = 0;
@@ -7,6 +30,8 @@
 //   });
 // }
 // handleEvendListener();
+
+//---------------------------
 
 // setTimeout(function () {
 //   console.log("Hello World");
