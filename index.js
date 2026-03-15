@@ -1,11 +1,11 @@
 ////event loop
-// console.log("Start");
+console.log("Start");
 
-// setTimeout(function() {
-//     console.log("timer");
-// }, 5000);
+setTimeout(function () {
+  console.log("timer");
+}, 5000);
 
-// console.log("End");
+console.log("End");
 
 //-----------------------------
 
