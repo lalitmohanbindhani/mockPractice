@@ -9,17 +9,17 @@ console.log("End");
 
 //-----------------------------
 
-// console.log("Start");
+console.log("Start");
 
-// setTimeout(function () {
-//   console.log("timer");
-// }, 5000);
+setTimeout(function () {
+  console.log("timer");
+}, 5000);
 
-// fetch("https://api.netflix.com").then(function cbf() {
-//   console.log("CB Netflix");
-// });
+fetch("https://api.netflix.com").then(function cbf() {
+  console.log("CB Netflix");
+});
 
-// console.log("End");
+console.log("End");
 
 ////callback function
 
