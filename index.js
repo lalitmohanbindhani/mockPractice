@@ -76,47 +76,66 @@
 // });
 
 ////create our own Promise
+// const cart = ["Shirt", "Pants", "Kurtas"];
+// const promise = createOrder(cart);
+// promise
+//   .then(function (orderId) {
+//     console.log(orderId);
+//     return orderId;
+//   })
+//   .catch(function (err) {
+//     console.log(err.message);
+//   })
+//   .then(function (orderId) {
+//     return proceedToPayment(orderId);
+//   })
+//   .then(function (paymentInfo) {
+//     console.log(paymentInfo);
+//   });
 
-const cart = ["Shoes", "pants", "Kurtas"];
-const promise = createOrder(cart);
-promise
-  .then(function (orderId) {
-    console.log(orderId);
-    return orderId;
-  })
-  .catch(function (err) {
-    console.log(err.message);
-  })
-  .then(function (orderId) {
-    return proceedToPayment(orderId);
-  })
-  .then(function (paymentInfo) {
-    console.log(paymentInfo);
-  });
+// function createOrder(cart) {
+//   const pr = new Promise(function (resolve, reject) {
+//     if (!validateCart(cart)) {
+//       const err = new Error("Cart is not valid");
+//       reject(err);
+//     }
+//     const orderId = 12345;
+//     setTimeout(function () {
+//       resolve(orderId);
+//     }, 5000);
+//   });
 
-function createOrder(cart) {
-  const pr = new Promise(function (resolve, reject) {
-    if (!validateCart(cart)) {
-      const err = new Error("Cart is not valid");
-      reject(err);
-    }
-    const orderId = 12345;
-    setTimeout(function () {
-      resolve(orderId);
-    }, 5000);
-  });
+//   return pr;
+// }
 
-  return pr;
+// function proceedToPayment(orderId) {
+//   return new Promise(function (resolve, reject) {
+//     resolve("Payment Successful");
+//   });
+// }
+
+// function validateCart(cart) {
+//   if (cart.length > 0) {
+//     return true;
+//   }
+// }
+
+//-----------------------------------
+
+////Async await
+
+//async function always return a promise.
+//there are two case, either it will return a promise
+// or if we return a value let say string , boolean or
+// number , then it will take this value and wrap it
+// inside a promise a return a promise but the function
+// will always a promise.
+
+async function getData() {
+  return "Hello";
 }
 
-function proceedToPayment(orderId) {
-  return new Promise(function (resolve, reject) {
-    resolve("Payment Successful");
-  });
-}
-
-function validateCart(cart) {
-  if (cart.length > 0) {
-    return false;
-  }
-}
+const data = getData();
+data.then(function (data) {
+  console.log(data);
+});
