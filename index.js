@@ -1,25 +1,25 @@
-////event loop
-console.log("Start");
+// ////event loop
+// console.log("Start");
 
-setTimeout(function () {
-  console.log("timer");
-}, 5000);
+// setTimeout(function () {
+//   console.log("timer");
+// }, 5000);
 
-console.log("End");
+// console.log("End");
 
-//-----------------------------
+// //-----------------------------
 
-console.log("Start");
+// console.log("Start");
 
-setTimeout(function () {
-  console.log("timer");
-}, 5000);
+// setTimeout(function () {
+//   console.log("timer");
+// }, 5000);
 
-fetch("https://api.netflix.com").then(function cbf() {
-  console.log("CB Netflix");
-});
+// fetch("https://api.netflix.com").then(function cbf() {
+//   console.log("CB Netflix");
+// });
 
-console.log("End");
+// console.log("End");
 
 ////callback function
 
@@ -44,3 +44,79 @@ console.log("End");
 // x(function y() {
 //   console.log("y");
 // });
+
+////Prmises
+
+// const cart = ["Shoes", "Pants", "Kurtas"];
+
+// createOrder(cart, function () {
+//   proceedToPayment(orderId, function (paymentInfo) {
+//     showOrderSummery(paymentInfo, function () {
+//       updateWalletBalence();
+//     });
+//   });
+// });
+
+// createOrder(cart)
+//   .then(function (orderId) {
+//     return proceedToPayment(orderId);
+//   })
+//   .then(function (paymentInfo) {
+//     return showOrderSummery(paymentInfo);
+//   })
+//   .then(function (data) {
+//     return updateWalletBalence(data);
+//   });
+
+// const GITHUB_URL = "https://github.com/lalitmohanbindhani";
+
+// const promise = fetch(GITHUB_URL);
+// promise.then(function (data) {
+//   console.log(data);
+// });
+
+////create our own Promise
+
+const cart = ["Shoes", "pants", "Kurtas"];
+const promise = createOrder(cart);
+promise
+  .then(function (orderId) {
+    console.log(orderId);
+    return orderId;
+  })
+  .catch(function (err) {
+    console.log(err.message);
+  })
+  .then(function (orderId) {
+    return proceedToPayment(orderId);
+  })
+  .then(function (paymentInfo) {
+    console.log(paymentInfo);
+  });
+
+function createOrder(cart) {
+  const pr = new Promise(function (resolve, reject) {
+    if (!validateCart(cart)) {
+      const err = new Error("Cart is not valid");
+      reject(err);
+    }
+    const orderId = 12345;
+    setTimeout(function () {
+      resolve(orderId);
+    }, 5000);
+  });
+
+  return pr;
+}
+
+function proceedToPayment(orderId) {
+  return new Promise(function (resolve, reject) {
+    resolve("Payment Successful");
+  });
+}
+
+function validateCart(cart) {
+  if (cart.length > 0) {
+    return false;
+  }
+}
