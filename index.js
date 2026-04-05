@@ -131,11 +131,55 @@
 // inside a promise a return a promise but the function
 // will always a promise.
 
-async function getData() {
-  return "Hello";
-}
+//async and await combo is used to handle promises.
 
-const data = getData();
-data.then(function (data) {
-  console.log(data);
-});
+// const p1 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve("Promise resolved value");
+//   }, 20000);
+// });
+
+// const p2 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve("Promise resolved value");
+//   }, 40000);
+// });
+
+//await can only be used inside async function.
+//js engine was waiting for promise to be resolved.
+
+// async function handlePromise() {
+//   console.log("Hello World");
+//   const data = await p1;
+//   console.log("Namaste Javascript");
+//   console.log(data);
+
+//   const data2 = await p2;
+//   console.log("Namaste Javascript 2");
+//   console.log(data2);
+// }
+
+// handlePromise();
+
+// function getData() {
+//   p.then((res) => console.log(res));
+//   console.log("Namaste Javascript");
+// }
+
+// getData();
+
+// const GITHUB_API = "https://ap.github.com/users/lalitmohanbindhani";
+
+// const getData = async () => {
+//   try {
+//     const data = await fetch(GITHUB_API);
+//     const json = await data.json();
+//     console.log(json);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
+
+// getData();
+
+////promise API
