@@ -1,5 +1,7 @@
-const printFullName = function () {
-  console.log(this.firstName + " " + this.lastName);
+const printFullName = function (hometown, city) {
+  console.log(
+    this.firstName + " " + this.lastName + " from " + hometown + ", " + city,
+  );
 };
 
 const name = {
@@ -12,5 +14,8 @@ const name2 = {
   lastName: "Saini",
 };
 
-printFullName.call(name);
-printFullName.call(name2);
+printFullName.call(name, "Bhubaneswar", "Jajpur");
+printFullName.call(name2, "Delhi", "Mumbai");
+printFullName.apply(name2, ["Delhi", "Mumbai"]);
+let printMyName = printFullName.bind(name2, "Delhi", "Mumbai");
+printMyName();
